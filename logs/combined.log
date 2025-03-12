@@ -1,0 +1,74 @@
+2025-03-12 01:18:26 [info]: Server running on port 3001
+2025-03-12 01:18:26 [info]: Environment: development
+2025-03-12 01:29:20 [info]: Server running on port 3001
+2025-03-12 01:29:20 [info]: Environment: development
+2025-03-12 02:26:56 [info]: Server running on port 3001
+2025-03-12 02:26:56 [info]: Environment: development
+2025-03-12 02:30:30 [info]: Server running on port 3001
+2025-03-12 02:30:30 [info]: Environment: development
+2025-03-12 02:30:33 [info]: Server running on port 3001
+2025-03-12 02:30:33 [info]: Environment: development
+2025-03-12 02:30:45 [info]: Server running on port 3001
+2025-03-12 02:30:45 [info]: Environment: development
+2025-03-12 02:33:04 [info]: Server running on port 3001
+2025-03-12 02:33:04 [info]: Environment: development
+2025-03-12 02:33:20 [info]: Server running on port 3001
+2025-03-12 02:33:20 [info]: Environment: development
+2025-03-12 02:50:52 [info]: Server running on port 3001
+2025-03-12 02:50:52 [info]: Environment: development
+2025-03-12 02:50:56 [info]: Server running on port 3001
+2025-03-12 02:50:56 [info]: Environment: development
+2025-03-12 02:51:08 [info]: Server running on port 3001
+2025-03-12 02:51:08 [info]: Environment: development
+2025-03-12 02:51:14 [info]: Server running on port 3001
+2025-03-12 02:51:14 [info]: Environment: development
+2025-03-12 02:53:45 [info]: Server running on port 3001
+2025-03-12 02:53:45 [info]: Environment: development
+2025-03-12 02:53:59 [info]: Server running on port 3001
+2025-03-12 02:53:59 [info]: Environment: development
+2025-03-12 02:54:42 [info]: Server running on port 3001
+2025-03-12 02:54:42 [info]: Environment: development
+2025-03-12 02:54:47 [info]: Server running on port 3001
+2025-03-12 02:54:47 [info]: Environment: development
+2025-03-12 02:57:26 [info]: Server running on port 3001
+2025-03-12 02:57:26 [info]: Environment: development
+2025-03-12 02:57:47 [info]: Server running on port 3001
+2025-03-12 02:57:47 [info]: Environment: development
+2025-03-12 02:57:53 [info]: Server running on port 3001
+2025-03-12 02:57:53 [info]: Environment: development
+2025-03-12 02:57:58 [info]: Server running on port 3001
+2025-03-12 02:57:58 [info]: Environment: development
+2025-03-12 02:58:11 [info]: Server running on port 3001
+2025-03-12 02:58:11 [info]: Environment: development
+2025-03-12 02:58:22 [info]: Server running on port 3001
+2025-03-12 02:58:22 [info]: Environment: development
+2025-03-12 02:58:30 [info]: Server running on port 3001
+2025-03-12 02:58:30 [info]: Environment: development
+2025-03-12 02:59:20 [info]: Server running on port 3001
+2025-03-12 02:59:20 [info]: Environment: development
+2025-03-12 03:04:37 [info]: Initializing Puppeteer browser
+2025-03-12 03:04:38 [info]: Fetching trades from https://www.capitoltrades.com/trades?page=1&limit=25&sortBy=date&order=desc
+2025-03-12 03:05:08 [warn]: Attempt 1/3 failed: Navigation timeout of 30000 ms exceeded
+2025-03-12 03:05:09 [info]: Fetching trades from https://www.capitoltrades.com/trades?page=1&limit=25&sortBy=date&order=desc
+2025-03-12 03:05:39 [warn]: Attempt 2/3 failed: Navigation timeout of 30000 ms exceeded
+2025-03-12 03:05:40 [info]: Fetching trades from https://www.capitoltrades.com/trades?page=1&limit=25&sortBy=date&order=desc
+2025-03-12 03:06:10 [warn]: Attempt 3/3 failed: Navigation timeout of 30000 ms exceeded
+2025-03-12 03:06:11 [error]: Error: Navigation timeout of 30000 ms exceeded
+2025-03-12 03:08:01 [info]: Server running on port 3001
+2025-03-12 03:08:01 [info]: Environment: development
+2025-03-12 03:08:20 [info]: Server running on port 3001
+2025-03-12 03:08:20 [info]: Environment: development
+2025-03-12 03:08:29 [info]: Server running on port 3001
+2025-03-12 03:08:29 [info]: Environment: development
+2025-03-12 03:10:07 [info]: Server running on port 3001
+2025-03-12 03:10:07 [info]: Environment: development
+2025-03-12 03:15:31 [info]: Server running on port 3001
+2025-03-12 03:15:31 [info]: Environment: development
+2025-03-12 03:17:33 [info]: Server running on port 3001
+2025-03-12 03:17:33 [info]: Environment: development
+2025-03-12 03:17:34 [info]: Server running on port 3001
+2025-03-12 03:17:34 [info]: Environment: development
+2025-03-12 03:21:01 [info]: Server running on port 3001
+2025-03-12 03:21:01 [info]: Environment: development
+2025-03-12 03:21:02 [info]: Server running on port 3001
+2025-03-12 03:21:02 [info]: Environment: development
