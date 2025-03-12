@@ -1,0 +1,38 @@
+name: Docker Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly
+
+jobs:
+  scan:
+    name: Docker Image Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build the Docker image
+      run: docker build ./app -t capitol-trades-api:test
+      
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'capitol-trades-api:test'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'CRITICAL,HIGH'
+        
+    - name: Run Dockle image linter
+      uses: goodwithtech/dockle-action@v1
+      with:
+        image: capitol-trades-api:test
+        format: 'list'
+        exit-code: '1'
+        ignore: 'DKL-DI-0006' 
