@@ -1,121 +1,76 @@
-# Capitol Trades Scraper API
+# Capitol Trades Project
 
-A Node.js application that scrapes politician stock trading data from Capitol Trades and exposes it through a RESTful API.
+A project to scrape and analyze congressional trading data using Node.js, Express, and n8n for workflow automation.
 
 ## Features
 
-- Scrapes real-time trading data from Capitol Trades
-- RESTful API endpoints for accessing trade data
-- Filtering by politician, ticker, and trade size
-- Caching for improved performance
-- Rate limiting for API protection
-- Docker containerization with hot reload
-- Comprehensive error handling and logging
+- Express API for data access and management
+- n8n workflow integration for automated data processing
+- Docker containerization for easy deployment
+- PostgreSQL database for data storage
 
-## Prerequisites
+## Setup
 
-- Docker
-- Docker Compose
+1. Clone the repository
+2. Copy `.env.example` to `.env` and configure environment variables
+3. Run `docker-compose up -d` to start all services
+4. Access n8n at `http://localhost:5678`
+5. Access the API at `http://localhost:3001`
+6. Import the n8n workflow from `n8n-workflows/capitol-trades-workflow.json`
 
-## Quick Start
+## Architecture
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd capitol-trades-project
-```
+The project consists of three main components:
+- Express API server for data management
+- n8n instance for workflow automation
+- PostgreSQL database for data storage
 
-2. Create a `.env` file (or copy from `.env.example`):
-```bash
-cp .env.example .env
-```
+All components are containerized using Docker and can be deployed together using docker-compose.
 
-3. Start the application:
-```bash
-docker-compose up
-```
+## n8n Workflows
 
-The API will be available at `http://localhost:3001`.
+The project includes automated workflows built with n8n:
 
-## API Endpoints
+### Capitol Trades Scraper Workflow
+Located in `n8n-workflows/capitol-trades-workflow.json`
 
-### Base URL: `http://localhost:3001`
+This workflow:
+- Makes HTTP requests to the Capitol Trades API
+- Processes and transforms the trade data
+- Stores the results in the PostgreSQL database
+- Runs on a scheduled basis
 
-- `GET /` - API information and available endpoints
-- `GET /health` - Health check endpoint
-- `GET /trades` - Get all trades with optional filtering
-- `GET /trades/size/:tradeSize` - Get trades for a specific trade size
-- `GET /trades/by-politician/:politicianId` - Get trades by politician
-- `GET /trades/official/:officialId` - Alias for by-politician endpoint
-- `GET /trades/by-ticker/:ticker` - Get trades by ticker symbol
-- `GET /trades/ticker/:ticker` - Alias for by-ticker endpoint
-- `GET /config` - View current configuration
-- `PUT /config` - Update configuration (development only)
-- `POST /config/clear-cache` - Clear the API cache
-
-### Query Parameters
-
-All trade endpoints support the following query parameters:
-
-- `page` (integer, default: 1) - Page number
-- `limit` (integer, default: 25, max: 100) - Results per page
-- `sortBy` (string) - Sort field (date, size, politician, ticker)
-- `order` (string) - Sort order (asc, desc)
-- `startDate` (ISO date) - Filter by start date
-- `endDate` (ISO date) - Filter by end date
-- `skipCache` (boolean) - Skip cache (development only)
-
-## Configuration
-
-Configuration is managed through environment variables:
-
-- `NODE_ENV` - Environment (development, production)
-- `PORT` - Server port (must be 3001)
-- `DEFAULT_PAGE_SIZE` - Default number of trades per page
-- `DEFAULT_TRADE_SIZES` - Default trade sizes to filter by
-- `DEFAULT_ASSET_TYPE` - Default asset type to filter by
-- `CACHE_ENABLED` - Enable/disable caching
-- `CACHE_TTL` - Cache time-to-live in seconds
-- `RATE_LIMIT_WINDOW_MS` - Rate limit window in milliseconds
-- `RATE_LIMIT_MAX_REQUESTS` - Maximum requests per window
-- `MAX_RETRIES` - Maximum retries for failed requests
-- `RETRY_DELAY_MS` - Delay between retries in milliseconds
-- `LOG_LEVEL` - Logging level (error, warn, info, debug)
+To import the workflow:
+1. Access n8n at http://localhost:5678
+2. Click "Workflows" in the sidebar
+3. Click the "Import from File" button
+4. Select the workflow JSON file from the n8n-workflows directory
+5. Configure any necessary credentials or settings
 
 ## Development
 
-The application uses Docker with hot reload for development. Any changes to the source code will automatically restart the server.
+To start development:
 
-### Logs
+```bash
+# Start all services
+docker-compose up -d
 
-Logs are stored in the `logs` directory:
-- `logs/error.log` - Error logs only
-- `logs/combined.log` - All logs
+# View logs
+docker-compose logs -f
 
-### Cache Management
+# Stop all services
+docker-compose down
+```
 
-- Cache can be disabled by setting `CACHE_ENABLED=false`
-- Cache can be bypassed per request using `?skipCache=true` (development only)
-- Cache can be cleared using the `/config/clear-cache` endpoint
+## Environment Variables
 
-## Error Handling
+Required environment variables:
+- `NODE_ENV`: Environment (development/production)
+- `PORT`: API server port
+- `DB_HOST`: Database host
+- `DB_PORT`: Database port
+- `DB_NAME`: Database name
+- `DB_USER`: Database user
+- `DB_PASSWORD`: Database password
 
-The API uses standard HTTP status codes:
-- 200: Success
-- 400: Bad Request (invalid parameters)
-- 403: Forbidden (e.g., configuration updates in production)
-- 404: Not Found
-- 429: Too Many Requests (rate limit exceeded)
-- 500: Internal Server Error
-
-## Security
-
-- CORS enabled
-- Helmet.js for security headers
-- Rate limiting per IP
-- Input validation using Joi
-- Production security measures in Docker
-
-## License
-
-MIT 
+See `.env.example` for all available options. 
